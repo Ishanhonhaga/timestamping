@@ -1,0 +1,103 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    bintrayRepo = 'timestamping'
+    bintrayName = 'timestamp'
+
+    publishedGroupId = 'io.ishanhonhaga.timestamp'
+    libraryName = 'FBLike'
+    artifact = 'timestamp'
+
+    libraryDescription = 'A wrapper for stamping files (Images) with location and time. Added feature to edit exif data of images'
+
+    siteUrl = 'https://github.com/Ishanhonhaga/timestamping'
+    gitUrl = 'https://github.com/Ishanhonhaga/timestamping.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'ishanhonhaga'
+    developerName = 'Ishan Honhaga'
+    developerEmail = 'ishanhonhaga@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+ext.versions = [
+        'minSdk'        : 14,
+        'compileSdk'    : 26,
+        'targetSdk'     : 26,
+        'buildTools'    : '26.0.1',
+
+        'release'       : libraryVersion,
+        'code'          : 18,
+]
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+
+        versionCode versions.code
+        versionName versions.release
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+apply from: 'https://raw.githubusercontent.com/LissF/JCenter/master/script.gradle'
+
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
