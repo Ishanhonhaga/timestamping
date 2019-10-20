@@ -17,7 +17,7 @@ ext {
     bintrayName = 'timestamp'
 
     publishedGroupId = 'io.ishanhonhaga.timestamp'
-    libraryName = 'Timestamp'
+    libraryName = 'FBlike'
     artifact = 'timestamp'
 
     libraryDescription = 'A wrapper for stamping files (Images) with location and time. Added feature to edit exif data of images'
