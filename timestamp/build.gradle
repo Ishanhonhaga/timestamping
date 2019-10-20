@@ -17,7 +17,7 @@ ext {
     bintrayName = 'timestamp'
 
     publishedGroupId = 'io.ishanhonhaga.timestamp'
-    libraryName = 'FBLike'
+    libraryName = 'Timestamp'
     artifact = 'timestamp'
 
     libraryDescription = 'A wrapper for stamping files (Images) with location and time. Added feature to edit exif data of images'
@@ -25,7 +25,7 @@ ext {
     siteUrl = 'https://github.com/Ishanhonhaga/timestamping'
     gitUrl = 'https://github.com/Ishanhonhaga/timestamping.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
 
     developerId = 'ishanhonhaga'
     developerName = 'Ishan Honhaga'
@@ -100,4 +100,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
 }
